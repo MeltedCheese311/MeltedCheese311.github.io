@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width" initial-scale="1">
+		<meta name="description" content="Gleb Skobelkin is a .NET developer">
+		<meta name="original-idea" content="The original idea I referred to belongs to Lauren Nicole Smith."/>
+		<title>Gleb Skobelkin</title>
+		<link rel="stylesheet" href="./bundle/main.css">
+		<link rel="icon" href="./bundle/favicon.ico">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/brands.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/fontawesome.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/solid.css">
+		<script>
+			var localesText = {
+			  "ru" : {
+				"name" : "Глеб Скобелкин",
+			    "greeting" : "👋 Привет. Я .NET разработчик с опытом настольной и веб разработки.",
+				"contact" : "Дайте мне знать, если у вас есть вопросы.",
+				"lang" : "EN"
+			  },
+			  "default" : {
+				"name" : "Gleb Skobelkin",
+			    "greeting" : "👋 Hi! I'm .NET developer with experience in desktop and web development.",
+				"contact" : "If you have any questions let me know.",
+				"lang" : "RU"
+			  }
+			}
+			var lang = navigator.language || navigator.userLanguage;
+			if (lang == "ru-RU"){
+			  lang = "ru"
+			}
+			if (!(lang in localesText)){
+				lang = "default"
+			}
+			//lang = "default";
+			
+			
+			function setText(contents) {
+				for (id in contents) {
+					var element = document.getElementById(id);
+					if (element){
+					  element.innerText = contents[id];
+					}
+				}
+			}
+			
+			function updateTextContents() {
+				var textContents = localesText[lang];
+				if (!textContents){
+				  textContents = localesText["default"]
+				}
+				setText(textContents)
+			}
+			
+			function switchLanguage() {
+			  lang = lang === "default" ? "ru" : "default";
+			  updateTextContents();
+			}
+		</script>
+	</head>
+	<body onload="updateTextContents()">
+		<div id="wrapper" class="wrapper">
+			<div class="site site-home">
+				<section>
+					<div class="about">
+						<div class="bio"> 
+							<h1>
+								<span id="name"></span> 
+							</h1>
+							<span id="lang" onclick="switchLanguage()"></span>
+							<p id="greeting"></p>
+							<p id="contact"></p>
+						</div>
+					</div>
+					<div class="contact">
+						<div class="social-links">
+							<a href="https://github.com/MeltedCheese311" target="_blank"><i class="fab fa-github"></i></a>
+							<a href="https://www.instagram.com/glebbbster" target="_blank"><i class="fab fa-instagram"></i></a>
+							<a href="https://vk.com/glebbster" target="_blank"><i class="fab fa-vk"></i></a>
+							<a href="https://t.me/GGLEbb" target="_blank"><i class="fab fa-telegram"></i></a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
